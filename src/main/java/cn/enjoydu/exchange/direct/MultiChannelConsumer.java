@@ -17,7 +17,6 @@ public class MultiChannelConsumer {
             this.connection = connection;
         }
 
-        @Override
         public void run() {
 
             try {
@@ -34,7 +33,7 @@ public class MultiChannelConsumer {
                 channel.exchangeDeclare(DirectProducer.EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
 
                 //消费者名字，打印输出用
-                String  consumerName= Thread.currentThread().getName()+ "-all";
+                final String  consumerName= Thread.currentThread().getName()+ "-all";
 
                 //声明一个随机队列
                 String queueName = channel.queueDeclare().getQueue();

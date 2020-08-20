@@ -41,12 +41,10 @@ public class ProducerConfirmAsync {
         //添加发送者确认监听器
         channel.addConfirmListener(new ConfirmListener() {
             //成功
-            @Override
             public void handleAck(long deliveryTag, boolean multiple) throws IOException {
                 System.out.println("send_ACK:"+deliveryTag+",multiple"+multiple);
             }
             //失败
-            @Override
             public void handleNack(long l, boolean b) throws IOException {
 
             }

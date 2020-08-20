@@ -19,7 +19,6 @@ public class MultiConsumerOneQueue {
             this.queueName = queueName;
         }
 
-        @Override
         public void run() {
 
             try {
@@ -36,7 +35,7 @@ public class MultiConsumerOneQueue {
                 channel.exchangeDeclare(DirectProducer.EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
 
                 //消费者名字，打印输出用
-                String  consumerName= Thread.currentThread().getName()+ "-all";
+                final String  consumerName= Thread.currentThread().getName()+ "-all";
 
                 channel.queueDeclare(queueName,false,false,false,null);
 
